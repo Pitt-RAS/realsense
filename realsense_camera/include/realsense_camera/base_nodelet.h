@@ -107,6 +107,7 @@ protected:
   std::string serial_no_;
   std::string usb_port_id_;
   std::string camera_type_;
+  double image_timestamp_offset_;
   std::string mode_;
   bool enable_[STREAM_COUNT] = {false};
   int width_[STREAM_COUNT];

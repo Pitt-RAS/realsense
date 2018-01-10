@@ -80,7 +80,7 @@ namespace realsense_camera
       {
         rs_wait_for_frames(rs_device_, &rs_error_);
         checkError();
-        topic_ts_ = ros::Time::now();
+        topic_ts_ = ros::Time::now() + ros::Duration(image_timestamp_offset_);
         duplicate_depth_color_ = false;
 
         for (int stream=0; stream < STREAM_COUNT; stream++)

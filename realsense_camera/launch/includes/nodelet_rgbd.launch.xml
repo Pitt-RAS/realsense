@@ -16,6 +16,7 @@
     <arg name="camera_type" /> <!-- Type of camera must be fully resolved -->
     <arg name="serial_no"           default="" />
     <arg name="usb_port_id"         default="" />
+    <arg name="image_timestamp_offset" /> <!-- Image timestamp offset must be fully resolved -->
     <arg name="mode"                default="" />
     <arg name="depth_width"         default="" />
     <arg name="depth_height"        default="" />
@@ -41,6 +42,7 @@
         <param name="serial_no"               type="str"  value="$(arg serial_no)" />
         <param name="usb_port_id"             type="str"  value="$(arg usb_port_id)" />
         <param name="camera_type"             type="str"  value="$(arg camera_type)" />
+        <param name="image_timestamp_offset"  type="double" value="$(arg image_timestamp_offset)" />
         <param name="enable_depth"            type="bool" value="$(arg enable_depth)" />
         <param name="enable_color"            type="bool" value="$(arg enable_color)" />
         <param name="enable_ir"               type="bool" value="$(arg enable_ir)" />

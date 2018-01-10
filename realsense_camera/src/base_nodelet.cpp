@@ -163,6 +163,7 @@ namespace realsense_camera
     pnh_.getParam("serial_no", serial_no_);
     pnh_.getParam("usb_port_id", usb_port_id_);
     pnh_.getParam("camera_type", camera_type_);
+    pnh_.getParam("image_timestamp_offset", image_timestamp_offset_);
     pnh_.param("mode", mode_, DEFAULT_MODE);
     pnh_.param("enable_depth", enable_[RS_STREAM_DEPTH], ENABLE_DEPTH);
     pnh_.param("enable_color", enable_[RS_STREAM_COLOR], ENABLE_COLOR);
@@ -867,7 +868,10 @@ namespace realsense_camera
    */
   ros::Time BaseNodelet::getTimestamp(rs_stream stream_index, double frame_ts)
   {
-    return ros::Time(camera_start_ts_) + ros::Duration(frame_ts * 0.001);
+    ROS_WARN("OFFSET: %f", image_timestamp_offset_);
+    return ros::Time(camera_start_ts_)
+           + ros::Duration(frame_ts * 0.001)
+           + ros::Duration(image_timestamp_offset_);
   }
 
   /*
