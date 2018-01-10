@@ -868,7 +868,6 @@ namespace realsense_camera
    */
   ros::Time BaseNodelet::getTimestamp(rs_stream stream_index, double frame_ts)
   {
-    ROS_WARN("OFFSET: %f", image_timestamp_offset_);
     return ros::Time(camera_start_ts_)
            + ros::Duration(frame_ts * 0.001)
            + ros::Duration(image_timestamp_offset_);
